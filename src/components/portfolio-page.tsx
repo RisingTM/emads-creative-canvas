@@ -42,7 +42,7 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
           </div>
           <div className="relative mx-auto w-full max-w-lg lg:ml-auto">
             <div className="absolute -left-5 top-10 h-[82%] w-[86%] border border-paper/25" />
-            {images.portrait ? <img src={images.portrait} alt="Emad Tamer Mashali" className="relative ml-auto aspect-[4/5] w-[88%] object-cover grayscale" /> : <Placeholder label="PORTRAIT" className="relative ml-auto aspect-[4/5] w-[88%]" />}
+            {images["portrait"] ? <img src={images["portrait"]} alt="Emad Tamer Mashali" className="relative ml-auto aspect-[4/5] w-[88%] object-cover grayscale" /> : <Placeholder label="PORTRAIT" className="relative ml-auto aspect-[4/5] w-[88%]" />}
             <div className="absolute -bottom-5 -left-2 bg-accent px-5 py-4 text-ink"><p className="text-xs uppercase tracking-widest">Based in Egypt</p><p className="font-display text-2xl">Design × Engineering</p></div>
           </div>
         </div>

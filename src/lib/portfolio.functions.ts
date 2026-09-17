@@ -4,6 +4,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { useSession } from "@tanstack/react-start/server";
 import { z } from "zod";
 import type { PortfolioContent, PortfolioData, PortfolioImages } from "./portfolio.types";
+import type { Json } from "@/integrations/supabase/types";
 
 type AdminSession = { portfolioAdmin?: boolean };
 
@@ -79,7 +80,7 @@ export const savePortfolio = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     await requireAdmin();
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { error } = await supabaseAdmin.from("portfolio_content").update({ content: data.content }).eq("id", "main");
+    const { error } = await supabaseAdmin.from("portfolio_content").update({ content: data.content as Json }).eq("id", "main");
     if (error) throw new Error("Could not save the portfolio");
     return { ok: true };
   });
